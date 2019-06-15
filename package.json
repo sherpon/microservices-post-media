@@ -1,0 +1,31 @@
+{
+  "name": "postmedia",
+  "version": "1.0.0",
+  "description": "## 1. Deploy",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sherpon/microservices-post-media.git"
+  },
+  "author": "Bruce Grover Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sherpon/microservices-post-media/issues"
+  },
+  "homepage": "https://github.com/sherpon/microservices-post-media#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^2.2.1",
+    "@google-cloud/storage": "^2.5.0",
+    "axios": "^0.19.0",
+    "busboy": "^0.3.1",
+    "fs": "0.0.1-security",
+    "os": "^0.1.1",
+    "path": "^0.12.7"
+  }
+}
