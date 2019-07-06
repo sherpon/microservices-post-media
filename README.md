@@ -28,18 +28,22 @@ If the Node.js Emulator fails to stop for any reason, you can use the kill comma
 functions kill
 ```
 
-Create a file ``./env/.envdevelopment.json`` and replace the values with your localhost information.
+Create a file ``./env/development.env.json`` and replace the values with your localhost information.
 ```json
 {
   "SHERPON_ENV": "DEVELOPMENT",
+  "GOOGLE_PROJECT_ID": "my-sherpon",
+  "GOOGLE_SERVICE_ACCOUNT": "./env/serviceAccountKey.development.json",
   "FIREBASE_SERVICE_ACCOUNT": "./env/serviceAccountKey.development.json",
-  "MICROSERVICES_ENDPOINT":  "http://localhost:8010/sherpon-staging/us-central1/",
-  "ADMIN_APP_URL":"http://0.0.0.0:4000",
-  "MYSQL_HOST": "localhost",
-  "MYSQL_PORT": 8889,
-  "MYSQL_USER": "root",
-  "MYSQL_PASSWORD": "root",
-  "MYSQL_DATABASE": "sherpon"
+  "GOOGLE_STORAGE_BUCKET": "my-sherpon",
+  "WEBSITE_STORAGE_INIT": 900,
+  "MICROSERVICES_ENDPOINT": "http://localhost:8010/my-sherpon/us-central1",
+  "CREATOR_ENDPOINT": "http://creator.sherpon.localhost:7000",
+  "DOMAIN_MANAGER_ENDPOINT": "http://domain-manager.sherpon.localhost:7000",
+  "ADMIN_APP_URL": "http://0.0.0.0:4000",
+  "PAYMENT_PROCESSOR": "CULQI",
+  "PAYMENT_PROCESSOR_PUBLIC_KEY": "public_key_1234567890",
+  "PAYMENT_PROCESSOR_PRIVATE_KEY": "private_key_1234567890"
 }
 ```
 
@@ -49,7 +53,7 @@ functions status
 ```
 You will get a table with the next row:
 ```
-HTTP Triggers    │ http://localhost:8010/sherpon-staging/us-central1/:function  
+HTTP Triggers    │ http://localhost:8010/my-sherpon/us-central1/:function  
 ```
 
 Deploying functions to the Node.js Emulator uses the same syntax as the gcloud command-line tool.
@@ -65,20 +69,26 @@ Set the project to deploy:
 gcloud config set project [PROJECT]
 ```
 
-Create a file ``/env/.env.staging.yaml`` and replace the values with your staging information.
+Create a file ``/env/staging.env.yaml`` and replace the values with your staging information.
 ```yaml
 SHERPON_ENV: STAGING
-MICROSERVICES_ENDPOINT: https://{functions-endpoint}.cloudfunctions.net/
-ADMIN_APP_URL: {https://my-admin-domain.com}
-INSTANCE_CONNECTION_NAME: /cloudsql/{YOUR INSTANCE CONNECTION NAME}
-MYSQL_USER: root
-MYSQL_PASSWORD: root
-MYSQL_DATABASE: sherpon
+GOOGLE_PROJECT_ID: my-sherpon
+GOOGLE_SERVICE_ACCOUNT: ./env/serviceAccountKey.development.json
+FIREBASE_SERVICE_ACCOUNT: ./env/serviceAccountKey.development.json
+GOOGLE_STORAGE_BUCKET: my-sherpon
+WEBSITE_STORAGE_INIT: "900"
+MICROSERVICES_ENDPOINT: https://us-central1-my-sherpon.cloudfunctions.net/
+CREATOR_ENDPOINT: https://creator.my-sherpon.com
+DOMAIN_MANAGER_ENDPOINT: https://domain-manager.my-sherpon.com
+ADMIN_APP_URL: https://admin.my-sherpon.com
+PAYMENT_PROCESSOR: CULQI
+PAYMENT_PROCESSOR_PUBLIC_KEY": public_key_1234567890
+PAYMENT_PROCESSOR_PRIVATE_KEY": private_key_1234567890
 ```
 
 ```
 gcloud functions deploy postMedia \
-  --env-vars-file ./env/.env.staging.yaml \
+  --env-vars-file ./env/staging.env.yaml \
   --runtime nodejs8 \
   --trigger-http
 ```
@@ -89,20 +99,26 @@ Set the project to deploy:
 gcloud config set project [PROJECT]
 ```
 
-Create a file ``/env/.env.production.yaml`` and replace the values with your production information.
+Create a file ``/env/production.env.yaml`` and replace the values with your production information.
 ```yaml
 SHERPON_ENV: PRODUCTION
-MICROSERVICES_ENDPOINT: https://{functions-endpoint}.cloudfunctions.net/
-ADMIN_APP_URL: {https://my-admin-domain.com}
-INSTANCE_CONNECTION_NAME: /cloudsql/{YOUR INSTANCE CONNECTION NAME}
-MYSQL_USER: root
-MYSQL_PASSWORD: root
-MYSQL_DATABASE: sherpon
+GOOGLE_PROJECT_ID: my-sherpon
+GOOGLE_SERVICE_ACCOUNT: ./env/serviceAccountKey.development.json
+FIREBASE_SERVICE_ACCOUNT: ./env/serviceAccountKey.development.json
+GOOGLE_STORAGE_BUCKET: my-sherpon
+WEBSITE_STORAGE_INIT: "900"
+MICROSERVICES_ENDPOINT: https://us-central1-my-sherpon.cloudfunctions.net/
+CREATOR_ENDPOINT: https://creator.my-sherpon.com
+DOMAIN_MANAGER_ENDPOINT: https://domain-manager.my-sherpon.com
+ADMIN_APP_URL: https://admin.my-sherpon.com
+PAYMENT_PROCESSOR: CULQI
+PAYMENT_PROCESSOR_PUBLIC_KEY": public_key_1234567890
+PAYMENT_PROCESSOR_PRIVATE_KEY": private_key_1234567890
 ```
 
 ```
 gcloud functions deploy postMedia \
-  --env-vars-file ./env/.env.production.yaml \
+  --env-vars-file ./env/production.env.yaml \
   --runtime nodejs8 \
   --trigger-http
 ```

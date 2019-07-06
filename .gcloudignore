@@ -17,8 +17,8 @@
 env/
 .env
 .env.yaml
-.env.staging.yaml
-.env.production.yaml
+staging.env.yaml
+production.env.yaml
 .env.json
 
 # test

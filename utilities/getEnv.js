@@ -7,7 +7,7 @@
 const getEnv = () => {
 
   if (process.env.SHERPON_ENV===undefined) {
-    const DEVELOPMENT_ENV =  require('../env/.env.development.json');
+    const DEVELOPMENT_ENV =  require('../env/development.env.json');
     
     // copy the env variables
     process.env = Object.assign({}, process.env, DEVELOPMENT_ENV);
