@@ -34,7 +34,7 @@ Create a file ``./env/.envdevelopment.json`` and replace the values with your lo
   "SHERPON_ENV": "DEVELOPMENT",
   "FIREBASE_SERVICE_ACCOUNT": "./env/serviceAccountKey.development.json",
   "MICROSERVICES_ENDPOINT":  "http://localhost:8010/sherpon-staging/us-central1/",
-  "ACCESS_CONTROL_ALLOW_ORIGIN":"http://0.0.0.0:4000",
+  "ADMIN_APP_URL":"http://0.0.0.0:4000",
   "MYSQL_HOST": "localhost",
   "MYSQL_PORT": 8889,
   "MYSQL_USER": "root",
@@ -69,7 +69,7 @@ Create a file ``/env/.env.staging.yaml`` and replace the values with your stagin
 ```yaml
 SHERPON_ENV: STAGING
 MICROSERVICES_ENDPOINT: https://{functions-endpoint}.cloudfunctions.net/
-ACCESS_CONTROL_ALLOW_ORIGIN: {https://my-admin-domain.com}
+ADMIN_APP_URL: {https://my-admin-domain.com}
 INSTANCE_CONNECTION_NAME: /cloudsql/{YOUR INSTANCE CONNECTION NAME}
 MYSQL_USER: root
 MYSQL_PASSWORD: root
@@ -93,7 +93,7 @@ Create a file ``/env/.env.production.yaml`` and replace the values with your pro
 ```yaml
 SHERPON_ENV: PRODUCTION
 MICROSERVICES_ENDPOINT: https://{functions-endpoint}.cloudfunctions.net/
-ACCESS_CONTROL_ALLOW_ORIGIN: {https://my-admin-domain.com}
+ADMIN_APP_URL: {https://my-admin-domain.com}
 INSTANCE_CONNECTION_NAME: /cloudsql/{YOUR INSTANCE CONNECTION NAME}
 MYSQL_USER: root
 MYSQL_PASSWORD: root

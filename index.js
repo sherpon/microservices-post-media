@@ -168,7 +168,7 @@ exports.postMedia = async (req, res) => {
   // const websiteId = req.query.websiteId;
 
   // Set CORS headers for preflight requests
-  res.set('Access-Control-Allow-Origin', process.env.ACCESS_CONTROL_ALLOW_ORIGIN);
+  res.set('Access-Control-Allow-Origin', process.env.ADMIN_APP_URL);
   res.set('Access-Control-Allow-Credentials', 'true');
 
   if (req.method === 'OPTIONS') {
