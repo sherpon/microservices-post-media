@@ -1,5 +1,5 @@
 {
-  "name": "postmedia",
+  "name": "microservices-post-media",
   "version": "1.0.0",
   "description": "## 1. Deploy",
   "main": "index.js",
