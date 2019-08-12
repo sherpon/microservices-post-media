@@ -4,7 +4,10 @@
   "description": "## 1. Deploy",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "export SHERPON_ENV='test' && jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
